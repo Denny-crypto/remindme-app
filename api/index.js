@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.static(__dirname));
 
 // Koneksi ke MongoDB
+let connectionError = null;
 if (!MONGODB_URI) {
     console.error("=================================");
     console.error("❌ MONGODB_URI BELUM DIISI!");
@@ -23,7 +24,10 @@ if (!MONGODB_URI) {
 } else {
     mongoose.connect(MONGODB_URI)
     .then(() => console.log('✅ Terhubung ke MongoDB! Data sekarang aman di Cloud.'))
-    .catch(err => console.error('❌ Gagal terhubung ke MongoDB:', err));
+    .catch(err => {
+        console.error('❌ Gagal terhubung ke MongoDB:', err);
+        connectionError = err.toString();
+    });
 }
 
 // ------------------------------------
@@ -161,7 +165,7 @@ app.post('/api/admin/data', async (req, res) => {
         res.json(usersObj);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: (error.message || 'Terjadi kesalahan') + ' | DEBUG_URI: ' + (MONGODB_URI ? 'TERISI' : 'KOSONG') });
+        res.status(500).json({ error: (error.message || 'Terjadi kesalahan') + ' | DEBUG_URI: ' + (MONGODB_URI ? 'TERISI' : 'KOSONG') + ' | CONN_ERR: ' + (connectionError || 'NONE') });
     }
 });
 
