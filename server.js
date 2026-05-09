@@ -165,11 +165,16 @@ app.post('/api/admin/data', async (req, res) => {
     }
 });
 
-// Jalankan server
-app.listen(PORT, () => {
-    console.log(`=================================`);
-    console.log(`Server RemindMe Berjalan di Port ${PORT}`);
-    console.log(`- Web User : http://localhost:${PORT}`);
-    console.log(`- Web Admin: http://localhost:${PORT}/admin.html`);
-    console.log(`=================================`);
-});
+// Jalankan server jika dijalankan secara lokal (bukan Vercel)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`=================================`);
+        console.log(`Server RemindMe Berjalan di Port ${PORT}`);
+        console.log(`- Web User : http://localhost:${PORT}`);
+        console.log(`- Web Admin: http://localhost:${PORT}/admin.html`);
+        console.log(`=================================`);
+    });
+}
+
+// Export app untuk Vercel Serverless
+module.exports = app;
