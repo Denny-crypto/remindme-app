@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- API / Server Logic ---
     async function loadUserData() {
         try {
-            const res = await fetch(`http://localhost:3000/api/user/${encodeURIComponent(currentUser)}`);
+            const res = await fetch(`/api/user/${encodeURIComponent(currentUser)}`);
             if (res.ok) {
                 const data = await res.json();
                 trackerState = data.tracker || {};
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function saveTrackerToServer() {
         try {
-            await fetch('http://localhost:3000/api/tracker', {
+            await fetch('/api/tracker', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: currentUser, trackerData: trackerState })
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const idToRemove = e.target.getAttribute('data-id');
                 if(confirm('Apakah kamu yakin ingin menghapus catatan WPDA ini?')) {
                     try {
-                        const res = await fetch(`http://localhost:3000/api/wpda/${encodeURIComponent(currentUser)}/${idToRemove}`, {
+                        const res = await fetch(`/api/wpda/${encodeURIComponent(currentUser)}/${idToRemove}`, {
                             method: 'DELETE'
                         });
                         if (res.ok) {
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
 
         try {
-            const res = await fetch('http://localhost:3000/api/wpda', {
+            const res = await fetch('/api/wpda', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: currentUser, materialData: newMaterial })
