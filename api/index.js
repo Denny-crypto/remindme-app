@@ -63,7 +63,7 @@ app.get('/api/user/:name', async (req, res) => {
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Terjadi kesalahan pada server' });
+        res.status(500).json({ error: error.message || 'Terjadi kesalahan pada server' });
     }
 });
 
@@ -85,7 +85,7 @@ app.post('/api/tracker', async (req, res) => {
         res.json({ success: true });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Terjadi kesalahan pada server' });
+        res.status(500).json({ error: error.message || 'Terjadi kesalahan pada server' });
     }
 });
 
@@ -109,7 +109,7 @@ app.post('/api/wpda', async (req, res) => {
         res.json({ success: true, material: materialData });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Terjadi kesalahan pada server' });
+        res.status(500).json({ error: error.message || 'Terjadi kesalahan pada server' });
     }
 });
 
@@ -128,7 +128,7 @@ app.delete('/api/wpda/:name/:id', async (req, res) => {
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Terjadi kesalahan pada server' });
+        res.status(500).json({ error: error.message || 'Terjadi kesalahan pada server' });
     }
 });
 
@@ -161,7 +161,7 @@ app.post('/api/admin/data', async (req, res) => {
         res.json(usersObj);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Terjadi kesalahan pada server' });
+        res.status(500).json({ error: error.message || 'Terjadi kesalahan pada server' });
     }
 });
 
