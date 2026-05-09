@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - RemindMe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-login { max-width: 400px; margin: 100px auto; text-align: center; }
+        .admin-dashboard { display: none; }
+        
+        .user-card { margin-bottom: 2rem; border-color: rgba(255, 255, 255, 0.1); }
+        .user-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem; }
+        .user-name { font-size: 1.5rem; color: var(--primary-red); }
+        
+        /* Mini tracker for admin */
+        .mini-tracker { display: flex; gap: 0.5rem; }
+        .mini-day { width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7rem; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: var(--text-muted); }
+        .mini-day.checked { background: var(--primary-red); color: white; border-color: var(--primary-red); box-shadow: 0 0 5px var(--primary-glow); }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--glass-border); vertical-align: top; }
+        th { color: var(--text-muted); font-weight: 600; }
+        tr:hover { background: rgba(255, 255, 255, 0.05); }
+
+        @media (max-width: 600px) {
+            .mini-day { width: 25px; height: 25px; font-size: 0.6rem; }
+            th, td { padding: 0.5rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decor decor-1"></div>
+    <div class="background-decor decor-2"></div>
+
+    <div class="container">
+        <!-- Login Section -->
+        <section class="admin-login glass-card" id="loginSection">
+            <h2>Admin Login</h2>
+            <p class="section-desc">Masukkan password untuk mengakses data.</p>
+            <div class="form-group">
+                <input type="password" id="adminPassword" placeholder="Password...">
+            </div>
+            <button id="loginBtn" class="btn-primary">Masuk</button>
+            <p id="loginError" style="color: var(--primary-red); margin-top: 1rem; display: none;">Password salah!</p>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section class="admin-dashboard" id="dashboardSection">
+            <header class="app-header" style="margin-bottom: 2rem;">
+                <h1>Admin <span>Dashboard</span></h1>
+                <p>Pantau perkembangan WPDA jemaat / komunitas</p>
+            </header>
+            
+            <div id="usersContainer">
+                <!-- User data akan di-render di sini -->
+            </div>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Task List: Fitur Admin & Backend
+
+- `[/]` Inisialisasi Backend (Node.js)
+  - `[ ]` Buat `package.json` dan install dependensi (`express`).
+  - `[ ]` Buat `server.js` untuk menangani API penyimpanan dan pengambilan data.
+  - `[ ]` Implementasikan proteksi password sederhana untuk endpoint admin.
+- `[ ]` Pembaruan Frontend User
+  - `[ ]` Tambahkan input "Nama" di `index.html` sebagai identitas user.
+  - `[ ]` Ubah `script.js` agar data Checklist Mingguan dikirim ke backend.
+  - `[ ]` Ubah `script.js` agar data Bahan WPDA dikirim ke backend.
+- `[ ]` Pembuatan Frontend Admin
+  - `[ ]` Buat `admin.html` (termasuk form login password & dashboard).
+  - `[ ]` Buat `admin.js` untuk mengambil dan merender data dari backend.
+  - `[ ]` Tambahkan styling `style.css` untuk tabel admin.
+- `[ ]` Verifikasi & Penjelasan
+  - `[ ]` Uji coba alur dari sisi user.
+  - `[ ]` Uji coba fitur admin (login, lihat data WPDA & tracker).
+  - `[ ]` Buat penjelasan cara kerja backend untuk user.

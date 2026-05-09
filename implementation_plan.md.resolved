@@ -1,0 +1,43 @@
+# RemindMe Website Implementation Plan
+
+Tujuan proyek ini adalah membangun **RemindMe**, sebuah website elegan dan modern untuk membantu komunitas life gereja Anda mengingat dan mencatat Waktu Pribadi Dengan Allah (WPDA).
+
+Website ini akan memiliki dua fitur utama:
+1. **WPDA Tracker Mingguan**: Kalender seminggu dengan fitur centang (checkbox) interaktif agar pengguna dapat melacak seberapa sering mereka melakukan WPDA.
+2. **Penyimpanan Bahan WPDA**: Sebuah fitur untuk menambah, melihat, dan menyimpan catatan atau bahan WPDA.
+
+## User Review Required
+
+> [!IMPORTANT]
+> Karena Anda belum secara spesifik meminta penggunaan framework seperti Next.js atau Vite, saya akan menggunakan **HTML, CSS (Vanilla), dan JavaScript (Vanilla)** murni untuk kecepatan dan performa. Data WPDA dan kalender akan disimpan sementara di **Local Storage** pada browser pengguna. Jika Anda lebih suka data tersimpan di server nyata (database) dan dapat diakses dari perangkat lain, tolong beritahu saya agar saya bisa menggunakan framework dan backend.
+
+## Open Questions
+
+> [!WARNING]
+> 1. Apakah ada warna atau tema khusus yang menjadi identitas komunitas Anda? (Secara default saya akan mendesainnya dengan tema *Glassmorphism* modern bernuansa *dark mode* dengan gradien ungu/biru yang menenangkan).
+> 2. Untuk bahan WPDA yang disimpan, apakah cukup Judul dan Isi Renungan saja, atau butuh field tambahan (misal: Tanggal, Ayat Referensi)?
+
+## Proposed Changes
+
+### Core Files
+
+#### [NEW] [index.html](file:///c:/AntiGravity%20-%20Global/Reminder%20Renungan/index.html)
+Struktur dokumen HTML. Terdiri dari navigasi, bagian header sapaan, kalender mingguan interaktif, dan bagian manajemen catatan WPDA. Akan menggunakan elemen HTML5 yang semantik.
+
+#### [NEW] [style.css](file:///c:/AntiGravity%20-%20Global/Reminder%20Renungan/style.css)
+File CSS untuk gaya dan estetika. Akan menggunakan desain *premium* dengan elemen *glassmorphism*, tipografi modern (Google Fonts), hover-effects, transisi halus, dan animasi yang membuat web terasa hidup dan dinamis.
+
+#### [NEW] [script.js](file:///c:/AntiGravity%20-%20Global/Reminder%20Renungan/script.js)
+File logika JavaScript. Bertanggung jawab atas:
+- Manajemen State: Membaca dan menulis progress checkbox mingguan ke Local Storage browser.
+- Manajemen Bahan: Operasi Create, Read, Update, Delete (CRUD) untuk bahan WPDA ke Local Storage.
+- Interaksi UI: Menangani animasi ketika kotak dicentang, ketika form dikirimkan, atau tab navigasi dipindah.
+
+## Verification Plan
+
+### Manual Verification
+- Membuka halaman utama di browser.
+- Menguji fitur centang WPDA pada kalender mingguan.
+- Menguji penambahan bahan/catatan WPDA, memastikan teks tersimpan dan muncul dalam daftar.
+- Me-refresh halaman (F5) untuk memastikan baik status centang kalender maupun catatan tetap tersimpan (menggunakan Local Storage).
+- Mengevaluasi estetika, layout responsif (untuk HP dan PC), dan interaksi *micro-animations*.
