@@ -161,7 +161,7 @@ app.post('/api/admin/data', async (req, res) => {
         res.json(usersObj);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: error.message || 'Terjadi kesalahan pada server' });
+        res.status(500).json({ error: (error.message || 'Terjadi kesalahan') + ' | DEBUG_URI: ' + (MONGODB_URI ? 'TERISI' : 'KOSONG') });
     }
 });
 
